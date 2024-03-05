@@ -11,8 +11,7 @@ bioRxiv reference
 
 Please cite the above publication if you use the contents, scripts or results for your own research.
 
-Below are instructions on the first steps for reproducing the analyses. Afterwards, please see README files in each 
-cancer folder for specifics on how to reproduce analyses for the given cancer type.
+Below are instructions for reproducing the analyses. 
 
 ## Structure and content of GitHub and OSF repositories
 
