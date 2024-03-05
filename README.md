@@ -14,6 +14,20 @@ Please cite the above publication if you use the contents, scripts or results fo
 Below are instructions on the first steps for reproducing the analyses. Afterwards, please see README files in each 
 cancer folder for specifics on how to reproduce analyses for the given cancer type.
 
+## Structure and content of GitHub and OSF repositories
+
+This GitHub repository contains scripts associated with the publication
+with a main folder for each cancer (sub)type. Within each cancer (sub)type folder,
+a subfolder called `scripts` contains the associated scripts. The scripts are
+numered according to the order in which they are run.
+
+The corresponding OSF repository contains data and results associated with
+the scripts and is organized in the same way as the GitHub repository with a
+main folder for each cancer (sub)type. Within each cancer (sub)type folder,
+subfolders called `data` and `results` contain the associated data and results,
+respectively. The results files in `results` are numbered according to the
+script that generated them.
+
 ## Installing requirements and reproducing the analysis
 
 All the analyses have been performed on a GNU/Linux server.
@@ -46,7 +60,20 @@ conda create --prefix ./methyl_case -c conda-forge r-base=4.3 r-pacman=0.5.1 r-c
 conda activate ./methyl_case
 ```
 
-3. Run the analyses:
+3. Download data from the [COSMIC Cancer Gene Census](https://cancer.sanger.ac.uk/census).
+This data can be downloaded from (https://cancer.sanger.ac.uk/census) by exporting it as
+a `CSV` file or from (https://cancer.sanger.ac.uk/cosmic/download/cosmic/v99/cancergenecensus)
+by choosing the file from `CRCh28` genome. 
+Once the data from the Cancer Gene Census has been downloaded, it must be a `CSV` file named 
+`cancer_gene_census.csv` and this file must be placed in the `data` folder of each cancer (sub)type:
+
+```
+breast_basal/data/cancer_gene_census.csv
+lung/data/cancer_gene_census.csv
+thyroid/data/cancer_gene_census.csv
+```
+
+4. Run the analyses:
 
 ```
 bash ./run_all.sh
@@ -73,16 +100,3 @@ contains the required data to run the analyses and all results associated with t
 6. Perform all analsyes for thyroid cancer. 
 
 7. Compare results across cancer (sub)types. 
-
-
-## Structure and content of GitHub and OSF repositories
-
-This GitHub repository contains scripts associated with the publication
-with a main folder for each cancer (sub)type. Within each cancer (sub)type folder,
-a subfolder called `scripts` contains the associated scripts. 
-
-The corresponding OSF repository contains data and results associated with 
-the scripts and is organized in the same way as the GitHub repository with a
-main folder for each cancer (sub)type. Within each cancer (sub)type folder, 
-subfolders called `data` and `results` contain the associated data and results,
-respectively.
