@@ -49,9 +49,9 @@ conda activate ./methyl_case
 3. change directory to the cancer type of interest, i.e. one of below possibilites:
 
 ```
-cd breast_basal
-cd lung
-cd thyroid
+cd breast_basal/scripts
+cd lung/scripts
+cd thyroid/scripts
 ```
 
 4. follow instructions in the README of the specific cancer type to reproduce analyses
