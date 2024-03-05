@@ -18,9 +18,9 @@ Below are instructions for reproducing the analyses.
 This GitHub repository contains scripts associated with the publication
 with a main folder for each cancer (sub)type. Within each cancer (sub)type folder,
 a subfolder called `scripts` contains the associated scripts. The scripts are
-numered according to the order in which they are run.
+numbered according to the order in which they are run.
 
-The corresponding OSF repository contains data and results associated with
+The corresponding [OSF repository](https://osf.io/j4n8q/) contains data and results associated with
 the scripts and is organized in the same way as the GitHub repository with a
 main folder for each cancer (sub)type. Within each cancer (sub)type folder,
 subfolders called `data` and `results` contain the associated data and results,
@@ -42,7 +42,7 @@ this requires being able to run Anaconda by means of the `conda` executable.
 
 If you don't have access to `conda` please see the [Miniconda installer page](https://docs.conda.io/en/latest/miniconda.html) for instructions on how to install Miniconda.
 
-Once you have access to `conda`, you can
+Once you have access to `conda`, follow the below instructions:
 
 1. Clone our github repository into a local directory on your local machine:
 
@@ -60,10 +60,10 @@ conda activate ./methyl_case
 ```
 
 3. Download data from the [COSMIC Cancer Gene Census](https://cancer.sanger.ac.uk/census).
-This data can be downloaded from (https://cancer.sanger.ac.uk/census) by exporting it as
-a `CSV` file or from (https://cancer.sanger.ac.uk/cosmic/download/cosmic/v99/cancergenecensus)
-by choosing the file from `CRCh28` genome. 
-Once the data from the Cancer Gene Census has been downloaded, it must be a `CSV` file named 
+This data can be downloaded from https://cancer.sanger.ac.uk/census by exporting it as
+a `csv` file or from https://cancer.sanger.ac.uk/cosmic/download/cosmic/v99/cancergenecensus
+by choosing the file from the `CRCh28` genome and afterwards converting it to a `csv` file. 
+Once the data from the Cancer Gene Census has been downloaded, it must be a `csv` file named 
 `cancer_gene_census.csv` and this file must be placed in the `data` folder of each cancer (sub)type:
 
 ```
