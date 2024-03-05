@@ -31,14 +31,14 @@ If you don't have access to `conda` please see the [Miniconda installer page](ht
 
 Once you have access to `conda`, you can
 
-1. clone our github repository into a local directory on your local machine:
+1. Clone our github repository into a local directory on your local machine:
 
 ```
 git clone https://github.com/ELELAB/Moonlight2_GMA_case_studies.git
 cd Moonlight2_GMA_case_studies
 ```
 
-2. create a virtual environment using conda and activate it. 
+2. Create a virtual environment using conda and activate it. 
 The environment directory should be placed in the Moonlight2_GMA_case_studies folder:
 
 ```
@@ -46,14 +46,43 @@ conda create --prefix ./methyl_case -c conda-forge r-base=4.3 r-pacman=0.5.1 r-c
 conda activate ./methyl_case
 ```
 
-3. change directory to the cancer type of interest, i.e. one of below possibilites:
+3. Run the analyses:
 
 ```
-cd breast_basal/scripts
-cd lung/scripts
-cd thyroid/scripts
+bash ./run_all.sh
 ```
 
-4. follow instructions in the README of the specific cancer type to reproduce analyses
-associated with that cancer type
+**WARNING**: our scripts use the [renv](https://rstudio.github.io/renv/articles/renv.html)
+R package to handle automatic dependency installation. `Renv` writes packages in
+its own cache folder, which is by default in the user's home directory. This might not be
+desirable if free space in the home directory is limited. You can change the location of
+the `Renv` root folder by setting a system environment variable - please see comments
+in the `run_all.sh` script.
 
+The `run_all.sh` script will perform the following steps to reproduce all results and data:
+
+1. Download data from the corresponding [OSF repository](https://osf.io/j4n8q/) which
+contains the required data to run the analyses and all results associated with the analyses.
+
+2. Install in the environment all necessary packages to run the analyses.
+
+4. Perform all analyses for basal-like breast cancer.
+
+5. Perform all analyses for lung adenocarcinoma. 
+
+6. Perform all analsyes for thyroid cancer. 
+
+7. Compare results across cancer (sub)types. 
+
+
+## Structure and content of GitHub and OSF repositories
+
+This GitHub repository contains scripts associated with the publication
+with a main folder for each cancer (sub)type. Within each cancer (sub)type folder,
+a subfolder called `scripts` contains the associated scripts. 
+
+The corresponding OSF repository contains data and results associated with 
+the scripts and is organized in the same way as the GitHub repository with a
+main folder for each cancer (sub)type. Within each cancer (sub)type folder, 
+subfolders called `data` and `results` contain the associated data and results,
+respectively.
