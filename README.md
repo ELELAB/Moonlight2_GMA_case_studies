@@ -55,7 +55,7 @@ cd Moonlight2_GMA_case_studies
 The environment directory should be placed in the Moonlight2_GMA_case_studies folder:
 
 ```
-conda create --prefix ./methyl_case -c conda-forge r-base=4.3 r-pacman=0.5.1 r-curl=5.1.0 r-ragg=1.2.7 r-renv=1.0.5 r-osfr=0.2.9 r-devtools=2.4.5 gsl=2.7 gmp=6.2.1 glpk=5.0
+conda env create --prefix ./methyl_case --file conda_environment.yml
 conda activate ./methyl_case
 ```
 
