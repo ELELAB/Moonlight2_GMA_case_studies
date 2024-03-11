@@ -1154,6 +1154,25 @@
       ],
       "Hash": "21512b53aae72a7e86597b1783e629b7"
     },
+    "HiveR": {
+      "Package": "HiveR",
+      "Version": "0.3.63",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "RColorBrewer",
+        "grid",
+        "jpeg",
+        "plyr",
+        "png",
+        "rgl",
+        "stats",
+        "tcltk",
+        "utils"
+      ],
+      "Hash": "33e332b92091e49f098cc949fc5f4bd4"
+    },
     "Hmisc": {
       "Package": "Hmisc",
       "Version": "5.1-1",
@@ -1336,6 +1355,60 @@
       ],
       "Hash": "40a55bd0b44719941d103291ac5e9d74"
     },
+    "Moonlight2R": {
+      "Package": "Moonlight2R",
+      "Version": "1.1.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "ELELAB",
+      "RemoteRepo": "Moonlight2R",
+      "RemoteRef": "devel",
+      "RemoteSha": "84f434bf7f99aea51737f29488bb5dc0dd90e48c",
+      "Requirements": [
+        "AnnotationHub",
+        "Biobase",
+        "BiocGenerics",
+        "ComplexHeatmap",
+        "DOSE",
+        "EpiMix",
+        "ExperimentHub",
+        "GEOquery",
+        "GenomicRanges",
+        "HiveR",
+        "R",
+        "RColorBrewer",
+        "RISmed",
+        "circlize",
+        "clusterProfiler",
+        "doParallel",
+        "dplyr",
+        "easyPubMed",
+        "foreach",
+        "fuzzyjoin",
+        "ggplot2",
+        "gplots",
+        "grDevices",
+        "graphics",
+        "grid",
+        "magrittr",
+        "org.Hs.eg.db",
+        "parmigene",
+        "purrr",
+        "qpdf",
+        "randomForest",
+        "readr",
+        "rtracklayer",
+        "seqminer",
+        "stats",
+        "stringr",
+        "tibble",
+        "tidyHeatmap",
+        "tidyr",
+        "utils"
+      ],
+      "Hash": "e7e6c6d487d1a6b6108401d565bdf6ae"
+    },
     "MultiAssayExperiment": {
       "Package": "MultiAssayExperiment",
       "Version": "1.28.0",
@@ -1510,6 +1583,19 @@
         "methods"
       ],
       "Hash": "47f648d288079d0c696804ad4e55197e"
+    },
+    "RISmed": {
+      "Package": "RISmed",
+      "Version": "2.3.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "httr",
+        "methods",
+        "xml2"
+      ],
+      "Hash": "e498d442b12beb67f9785a13e5a8eb7f"
     },
     "RJSONIO": {
       "Package": "RJSONIO",
@@ -3299,6 +3385,22 @@
       ],
       "Hash": "24754fce82729ff85317dd195b6646a8"
     },
+    "dendextend": {
+      "Package": "dendextend",
+      "Version": "1.17.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "datasets",
+        "ggplot2",
+        "magrittr",
+        "stats",
+        "utils",
+        "viridis"
+      ],
+      "Hash": "043fafb791081fc553f29021bd0a9a01"
+    },
     "desc": {
       "Package": "desc",
       "Version": "1.4.3",
@@ -3536,6 +3638,17 @@
         "utils"
       ],
       "Hash": "4ef372b716824753719a8a38b258442d"
+    },
+    "easyPubMed": {
+      "Package": "easyPubMed",
+      "Version": "2.13",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "utils"
+      ],
+      "Hash": "de016e6d81383949a0571e890ebd864f"
     },
     "edgeR": {
       "Package": "edgeR",
@@ -6376,6 +6489,13 @@
       ],
       "Hash": "5410df8d22bd36e616f2a2343dbb328c"
     },
+    "parmigene": {
+      "Package": "parmigene",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0dcf4b4999e21743cc7775806ddfa85d"
+    },
     "parsedate": {
       "Package": "parsedate",
       "Version": "1.3.1",
@@ -6909,6 +7029,18 @@
         "utils"
       ],
       "Hash": "09b5328822fce8e94ef54eb590e0470e"
+    },
+    "qpdf": {
+      "Package": "qpdf",
+      "Version": "1.3.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "Rcpp",
+        "askpass",
+        "curl"
+      ],
+      "Hash": "e233fd211c74cb9297f4ab898ea2c18a"
     },
     "qreport": {
       "Package": "qreport",
@@ -7766,6 +7898,13 @@
       ],
       "Hash": "3838071b66e0c566d55cc26bd6e27bf4"
     },
+    "seqminer": {
+      "Package": "seqminer",
+      "Version": "9.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ed05885c3d2929dafa10b308ee99868e"
+    },
     "seriation": {
       "Package": "seriation",
       "Version": "1.5.4",
@@ -8400,6 +8539,34 @@
         "vctrs"
       ],
       "Hash": "a84e2cc86d07289b3b6f5069df7a004c"
+    },
+    "tidyHeatmap": {
+      "Package": "tidyHeatmap",
+      "Version": "1.8.1",
+      "Source": "Bioconductor",
+      "Repository": "RSPM",
+      "Requirements": [
+        "ComplexHeatmap",
+        "R",
+        "RColorBrewer",
+        "circlize",
+        "dendextend",
+        "dplyr",
+        "grDevices",
+        "grid",
+        "lifecycle",
+        "magrittr",
+        "methods",
+        "patchwork",
+        "purrr",
+        "rlang",
+        "stats",
+        "tibble",
+        "tidyr",
+        "utils",
+        "viridis"
+      ],
+      "Hash": "20d2fe40e16b73eb52a628953d2de0ee"
     },
     "tidygraph": {
       "Package": "tidygraph",
