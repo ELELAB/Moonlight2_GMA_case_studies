@@ -7,7 +7,7 @@ This repository contains scripts for case studies related to the discovery of ca
 framework. The case studies are conducted on basal-like breast cancer, lung adenocarcinoma, and thyroid cancer using 
 data from The Cancer Genome Atlas (TCGA). The associated publication is:
 
-bioRxiv reference
+Revealing cancer driver genes through integrative transcriptomic and epigenomic analyses with Moonlight. Mona Nourbakhsh, Yuanning Zheng, Humaira Noor, Matteo Tiberti, Olivier Gevaert, Elena Papaleo. bioRxiv 2024.03.14.584946; doi: https://doi.org/10.1101/2024.03.14.584946
 
 Please cite the above publication if you use the contents, scripts or results for your own research.
 
