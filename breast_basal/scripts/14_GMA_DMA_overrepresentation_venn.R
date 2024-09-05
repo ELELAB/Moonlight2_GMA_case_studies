@@ -1,3 +1,5 @@
+## This script performs enrichment analysis on the DMA predicted driver genes and checks for overlaps between these drivers and the GMA predicted drivers
+
 ## Load libraries ------------------------------------
 library(Moonlight2R)
 library(enrichR)

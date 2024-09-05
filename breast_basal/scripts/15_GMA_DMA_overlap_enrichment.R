@@ -1,3 +1,5 @@
+## This script performs enrichment analysis on the drivers predicted by both GMA and DMA
+
 ## Load libraries ------------
 library(tidyverse)
 library(RColorBrewer)
