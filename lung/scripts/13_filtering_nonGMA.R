@@ -5,9 +5,9 @@ library(tidyverse)
 library(stringr)
 
 ## Load data------------
-load("lung/data/mutations_subset.rda")
-load("lung/results/DMA/Oncogenic_mediators_mutation_summary.rda")
-load("lung/results/DMA/DEG_Mutations_Annotations.rda")
+load("lung/data/LUAD_mutations_subset.rda")
+load("lung/results/Oncogenic_mediators_mutation_summary.rda")
+load("lung/results/DEG_Mutations_Annotations.rda")
 
 ## Fetch names of driver genes predicted by DMA----------- 
 DMA_Driver_genes <- Oncogenic_mediators_mutation_summary %>% 
