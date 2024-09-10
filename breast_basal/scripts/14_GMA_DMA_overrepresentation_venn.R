@@ -98,8 +98,8 @@ DMA_Hm <-goplot(data = enrich_analysis$DMA_driver$MSigDB_Hallmark_2020,
 all_Hm <- GMA_Hm + DMA_Hm
 
 ## Save data ------------------------------------
-ggsave(filename = "14_comparison_GMA_DMA.pdf",
-       plot = all_Hm,
+ggsave(filename = "14_BRCA_DMA_enrichment.pdf",
+       plot = DMA_Hm,
        path = "breast_basal/results/",
-       width = 12,
-       height = 8)
+       width = 6.5,
+       height = 10)

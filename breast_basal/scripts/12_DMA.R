@@ -1,4 +1,3 @@
-options(rgl.useNULL = TRUE)
 ## This script runs the DMA function on the mutation subset of the methylation samples
 
 ## Load R environment-------------
