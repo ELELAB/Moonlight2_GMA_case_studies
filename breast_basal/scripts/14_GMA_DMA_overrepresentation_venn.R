@@ -13,7 +13,7 @@ source("99_functions.R")
 
 ## Load the GMA and DMA data  --------------------------
 data_EDA <- get(load("breast_basal/results/BRCA_basal_dataEDA.rda"))
-data_DMA <- get(load("breast_basal/data/BRCA_basal_DMA.rda"))
+data_DMA <- get(load("breast_basal/data/BRCA_basal_dataDMA.rda"))
 
 ## Get driver genes  --------------------------
 GMA_driver_genes <- Reduce(c, data_EDA)
