@@ -87,11 +87,11 @@ enrich_analysis <- map(gene_lists, function(x) {
 
 # Visualize enrichment analysis results of MSigDB Hallmark terms of driver genes
 GMA_Hm <-goplot(data = enrich_analysis$GMA_driver$MSigDB_Hallmark_2020,
-                title = "MSigDB Hallmark 2020 - GMA driver genes",
+                title = "Basal-like breast cancer GMA",
                 top = 10)
 
 DMA_Hm <-goplot(data = enrich_analysis$DMA_driver$MSigDB_Hallmark_2020,
-                title = "MSigDB Hallmark 2020 - DMA driver genes",
+                title = "Basal-like breast cancer DMA",
                 top = 10)
 
 # Visualize enrichment analysis of all gene lists side by side
