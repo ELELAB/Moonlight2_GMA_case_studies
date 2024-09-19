@@ -36,7 +36,7 @@ normal_mutations_subset <- Maf_Basal_filtered %>%
 
 ## Combine the barcode-matched cancer and normal samples
 all_mutations_subset <- cancer_mutations_subset %>% 
-  union_all(y = normal_mutations_subset)
+  union(y = normal_mutations_subset)
 
 ## Save the combined mutation subset
 save(all_mutations_subset,file='breast_basal/data/BRCA_basal_mutation_subset.rda')
