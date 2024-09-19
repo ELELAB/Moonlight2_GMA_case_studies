@@ -17,24 +17,24 @@ Maf_Basal_filtered <- Maf_Basal |>
          n_depth >10)
 
 ## Separate the samples into cancer and normal-------
-cancer_barcodes <- sample_annotation  |> 
-  filter(sample.type == "Cancer")  |> 
-  select(primary)
-normal_barcodes <- sample_annotation  |> 
-  filter(sample.type == "Normal")  |> 
-  select(primary)
+# cancer_barcodes <- sample_annotation  |> 
+#  filter(sample.type == "Cancer")  |> 
+#  select(primary)
+# normal_barcodes <- sample_annotation  |> 
+#  filter(sample.type == "Normal")  |> 
+#  select(primary)
 
 ## Match methylation patient barcodes with mutations for the cancer samples--------
-cancer_mutations_subset <-  Maf_Basal_filtered %>% 
-  filter((substr(x = Tumor_Sample_Barcode, start = 1, stop = 15)) %in% cancer_barcodes$primary)
+all_mutations_subset <-  Maf_Basal_filtered %>% 
+  filter((substr(x = Tumor_Sample_Barcode, start = 1, stop = 15)) %in% sample_annotation$primary)
 
 ## Match methylation patient barcodes with mutations for the normal samples----------
-normal_mutations_subset <- Maf_Basal_filtered %>% 
-  filter((substr(x = Matched_Norm_Sample_Barcode, start = 1, stop = 15)) %in% normal_barcodes$primary)
+# normal_mutations_subset <- Maf_Basal_filtered %>% 
+#  filter((substr(x = Matched_Norm_Sample_Barcode, start = 1, stop = 15)) %in% normal_barcodes$primary)
 
 ## Combine the barcode-matched cancer and normal samples---------
-all_mutations_subset <- cancer_mutations_subset %>% 
-  union_all(y = normal_mutations_subset)
+#all_mutations_subset <- cancer_mutations_subset %>% 
+#  union(y = normal_mutations_subset)
 
 ## Save the combined mutation subset-------
 save(all_mutations_subset, file = "lung/data/LUAD_mutations_subset.rda")
