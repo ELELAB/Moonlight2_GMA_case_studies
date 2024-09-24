@@ -18,25 +18,14 @@ Maf_Basal_filtered <- Maf_Basal |>
          t_depth > 30,
          n_depth >10)
 
-## Separate the samples into cancer and normal
+## Extract the cancer samples
 cancer_barcodes <- sample_annotation  |> 
   filter(sample.type == "Cancer")  |> 
   select(primary)
-normal_barcodes <- sample_annotation  |> 
-  filter(sample.type == "Normal")  |> 
-  select(primary)
 
 ## Match methylation patient barcodes with mutations for the cancer samples
-cancer_mutations_subset <-  Maf_Basal_filtered %>% 
+mutations_subset <-  Maf_Basal_filtered %>% 
   filter((substr(x = Tumor_Sample_Barcode, start = 1, stop = 15)) %in% cancer_barcodes$primary)
 
-## Match methylation patient barcodes with mutations for the normal samples
-normal_mutations_subset <- Maf_Basal_filtered %>% 
-  filter((substr(x = Matched_Norm_Sample_Barcode, start = 1, stop = 15)) %in% normal_barcodes$primary)
-
-## Combine the barcode-matched cancer and normal samples
-all_mutations_subset <- cancer_mutations_subset %>% 
-  union(y = normal_mutations_subset)
-
-## Save the combined mutation subset
-save(all_mutations_subset,file='breast_basal/data/BRCA_basal_mutation_subset.rda')
+## Save the mutation subset
+save(mutations_subset,file='breast_basal/data/BRCA_basal_mutation_subset.rda')
