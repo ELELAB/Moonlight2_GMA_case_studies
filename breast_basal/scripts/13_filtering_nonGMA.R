@@ -6,20 +6,15 @@ library(stringr)
 
 ## Load data------------
 load("breast_basal/data/BRCA_basal_mutation_subset.rda")
-load("breast_basal/results/DEG_Mutations_Annotations.rda")
-load("breast_basal/results/Oncogenic_mediators_mutation_summary.rda")
+load("breast_basal/data/BRCA_Basal_sample_annotations.rda")
 
-## Fetch names of driver genes predicted by DMA 
-DMA_Driver_genes <- Oncogenic_mediators_mutation_summary %>% 
-  filter(CScape_Driver >= 1 ) %>% 
-  select(Hugo_Symbol)
-
-## Fetch patient barcodes containing these driver genes from the GMA dataset
-DMA_within_GMA <- DEG_Mutations_Annotations %>% 
-  filter(Hugo_Symbol %in% DMA_Driver_genes$Hugo_Symbol) %>% 
+## Fetch tumor sample barcodes from cancer mutation subset
+tumor_patient_barcodes <- mutations_subset %>% 
+  select(Tumor_Sample_Barcode) %>% 
+  group_by(Tumor_Sample_Barcode) %>% 
+  unique() %>% 
   mutate(Tumor_Sample_Barcode_short = substr(x = Tumor_Sample_Barcode, start = 1, stop = 15))
 
 ## Check if any patient sample contains driver genes predicted by GMA 
-## but is missing from the DMA_within_GMA barcodes 
-Missing_sample_in_DMA <-all_mutations_subset %>%
-  filter(Tumor_Sample_Barcode %in% DMA_within_GMA$Tumor_Sample_Barcode_short)
+## but is missing in MAF mutation file 
+Missing_sample_in_MAF <- data.frame(setdiff(sample_annotation$primary,tumor_patient_barcodes$Tumor_Sample_Barcode_short))
