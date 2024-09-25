@@ -13,7 +13,7 @@ source("99_functions.R")
 
 ## Load data ---------------
 load("lung/results/LUAD_dataEDA.rda")
-load("lung/results/LUAD_dataDMA.rda")
+load("lung/data/LUAD_dataDMA.rda")
 
 # Get driver genes
 GMA_driver_genes <- Reduce(c, data_EDA)
@@ -91,19 +91,19 @@ enrich_analysis <- map(gene_lists, function(x) {
 
 # Visualize enrichment analysis results of MSigDB Hallmark terms of GMA driver genes
 gma_dr <- goplot(data = enrich_analysis$GMA_driver$MSigDB_Hallmark_2020, 
-                title = "MSigDB Hallmark 2020 - GMA driver genes", 
+                title = "Lung adenocarcinoma GMA", 
                 top = 10)
 
 dma_dr <- goplot(data = enrich_analysis$DMA_driver$MSigDB_Hallmark_2020, 
-                  title = "MSigDB Hallmark 2020 - DMA driver genes", 
+                  title = "Lung adenocarcinoma DMA", 
                   top = 10)
 
 # Visualize enrichment analysis of all gene lists side by side
 all_dr <- gma_dr + dma_dr
 
-# Save side by side enrichment plot of MSigDB hallmark terms
-ggsave(filename = "14_LUAD_GMA_vs_DMA.pdf",
-       plot = all_dr,
+# Save DMA enrichment plot of MSigDB hallmark terms
+ggsave(filename = "14_LUAD_DMA_enrichment.pdf",
+       plot = dma_dr,
        path = "lung/results/",
-       width = 12,
-       height = 8)
+       width = 6.5,
+       height = 10)

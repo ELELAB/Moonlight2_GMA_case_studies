@@ -10,7 +10,7 @@ source("99_functions.R")
 
 ## Load data ---------------
 load("lung/results/LUAD_dataEDA.rda")
-load("lung/results/LUAD_dataDMA.rda")
+load("lung/data/LUAD_dataDMA.rda")
 
 # Get driver genes
 GMA_driver_genes <- Reduce(c, data_EDA)
