@@ -8,13 +8,18 @@ library(stringr)
 load("breast_basal/data/BRCA_basal_mutation_subset.rda")
 load("breast_basal/data/BRCA_Basal_sample_annotations.rda")
 
-## Fetch tumor sample barcodes from cancer mutation subset
-tumor_patient_barcodes <- mutations_subset %>% 
-  select(Tumor_Sample_Barcode) %>% 
+## Load patient barcodes having mutations
+patients_mutated <- mutations_subset %>% 
   group_by(Tumor_Sample_Barcode) %>% 
+  select(Tumor_Sample_Barcode) %>% 
   unique() %>% 
-  mutate(Tumor_Sample_Barcode_short = substr(x = Tumor_Sample_Barcode, start = 1, stop = 15))
+  mutate(primary = substr(x = Tumor_Sample_Barcode, start = 1, stop = 15)) %>% 
+  ungroup %>% 
+  select(primary)
 
-## Check if any patient sample contains driver genes predicted by GMA 
-## but is missing in MAF mutation file 
-Missing_sample_in_MAF <- data.frame(setdiff(sample_annotation$primary,tumor_patient_barcodes$Tumor_Sample_Barcode_short))
+## Load patient barcodes having methylations
+patients_methylated <- sample_annotation %>% 
+  select(primary)
+
+## Find patients having methylations but no mutations
+methylated_but_not_mutated <- setdiff(patients_methylated, patients_mutated)
