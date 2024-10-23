@@ -1,26 +1,25 @@
-## This script filters for patient barcodes containing methylation, but no mutations
+## This script filters for patient barcodes containing methylation, but no mutations in the MAF file
 
 ## Load libraries
 library(tidyverse)
 library(stringr)
 
 ## Load data------------
-load("lung/data/mutations_subset.rda")
-load("lung/results/DMA/Oncogenic_mediators_mutation_summary.rda")
-load("lung/results/DMA/DEG_Mutations_Annotations.rda")
+load("lung/data/LUAD_mutations_subset.rda")
+load("lung/data/LUAD_sample_annotations.rda")
 
-## Fetch names of driver genes predicted by DMA----------- 
-DMA_Driver_genes <- Oncogenic_mediators_mutation_summary %>% 
-  filter(CScape_Driver >= 1 ) %>% 
-  select(Hugo_Symbol)
+##Load patient barcodes having mutations
+patients_mutated <- mutations_subset %>% 
+  group_by(Tumor_Sample_Barcode) %>% 
+  select(Tumor_Sample_Barcode) %>% 
+  unique() %>% 
+  mutate(primary = substr(x = Tumor_Sample_Barcode, start = 1, stop = 15)) %>% 
+  ungroup %>% 
+  select(primary)
 
-## Fetch patient barcodes containing these driver genes from the GMA dataset-----------
-DMA_within_GMA <- DEG_Mutations_Annotations %>% 
-  filter(Hugo_Symbol %in% DMA_Driver_genes$Hugo_Symbol) %>% 
-  mutate(Tumor_Sample_Barcode_short = substr(x = Tumor_Sample_Barcode, start = 1, stop = 15))
+#Load patient barcodes having methylations
+patients_methylated <- sample_annotation %>% 
+  select(primary)
 
-## Check if any patient sample contains driver genes predicted by GMA but is missing from the DMA_within_GMA barcodes--------- 
-all_mutations_subset %>%
-  filter(Tumor_Sample_Barcode %in% DMA_within_GMA$Tumor_Sample_Barcode_short)
-  
-
+#Find patients having methylations but no mutations
+methylated_but_not_mutated <- setdiff(patients_methylated, patients_mutated)
