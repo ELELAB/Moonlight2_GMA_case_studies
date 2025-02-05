@@ -167,11 +167,12 @@ overlaps_cancer_types_plot <- ggplot(data = overlaps_cancer_types,
 
 # Exclude EpiMix from sensitivity/precision visualization
 overlaps_cancer_types_wo_EpiMix <- overlaps_cancer_types %>% 
-  dplyr::filter(gene_set != "EpiMix")
+  dplyr::filter(gene_set != "EpiMix") %>% 
+  mutate(gene_set = ifelse(gene_set == "EDA", "GMA", gene_set))
 overlaps_cancer_types_plot_wo_EpiMix <- ggplot(data = overlaps_cancer_types_wo_EpiMix, 
-                                               mapping = aes(x = gene_set, 
+                                               mapping = aes(x = estimate_type, 
                                                              y = estimate_perc,
-                                                             fill = estimate_type)) +
+                                                             fill = gene_set)) +
   geom_bar(stat = "identity", position = "dodge", width = 0.5) +
   scale_fill_manual(values = c("#FDE725FF", "#440154FF")) +
   facet_grid(~ cancer_type) + 
